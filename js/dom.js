@@ -4,6 +4,8 @@
  * This is mostly to interact with native elements for input, such as textareas, sliders,
  * radiobuttons etc.
  */
+
+//The factor that the screen is larger compared to 1280x720
 var RESIZE_FACTOR = 0;
 
  /**
@@ -35,6 +37,15 @@ function addElement(id, tagName, innerHTML){
     //now return the object we added
     return $('#' + id);
 }
+/**
+ * Adds a new element to the document. Use the provided tagname and
+ * tagContent.
+ * @param {String} id   the id we have to give to the entity
+ * @param {String} tagName  the name of the tag. f.e. h1
+ * @param {String} innerHTML the content of the tag. Can be text but also more HTML.
+ * @return the JQuery selection of the element
+ */
+const add = addElement;
 
 /**
  * Sets the element with the given id to the provided positions
@@ -54,3 +65,11 @@ function setPosition(id, x, y){
     //Return the object we moved
     return $('#' + id);
 }
+/**
+ * Sets the element with the given id to the provided positions
+ * @param {String} id  the id of the element
+ * @param {Number} x   the x-coord we have to place the element at.
+ * @param {Number} y   the y-coord we have to place the element at.
+ * @return the JQuery object that we modified
+ */
+const pos = setPosition;

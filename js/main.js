@@ -19,7 +19,7 @@ function setup(){
     //Resolution later on.
     frameRate(60);
 
-    addElement("thingy", "h1", "Testing");
+    add("thingy", "h1", "Testing");
 }
 
 /**
@@ -30,7 +30,7 @@ function draw(){
     background(255, 125, 125);
     noStroke();
 
-    setPosition("thingy", mouseX, mouseY);
+    pos("thingy", mouseX, mouseY);
 
     //Follow the mouse, and draw a purplish circle
     fill(125, 125, 255);
