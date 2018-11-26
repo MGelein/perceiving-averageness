@@ -7,6 +7,8 @@
 
 //The factor that the screen is larger compared to 1280x720
 var RESIZE_FACTOR = 0;
+//The easing factor.
+const EASE_FACTOR = 0.1;
 
  /**
   * JQuery entry point, this will probably trigger the loading of the external data files.

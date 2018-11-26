@@ -30,7 +30,7 @@ function draw(){
     background(255, 125, 125);
     noStroke();
 
-    pos("thingy", mouseX, mouseY);
+    easeTo("thingy", mouseX, mouseY);
 
     //Follow the mouse, and draw a purplish circle
     fill(125, 125, 255);
