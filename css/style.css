@@ -12,6 +12,11 @@ body{
 canvas{
     height: auto;
     width: 100vw;
+    z-index: -1;
+}
+
+*{
+    position: absolute;
 }
 
 /**
