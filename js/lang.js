@@ -1,5 +1,8 @@
 /**
- * Holds all the lanugage functionality
+ * LANG.JS
+ * Holds all the lanugage functionality, this file is used to load and take care of internationalization.
+ * Basically loads an external file that has definitions for both languages this application supports, and 
+ * depending on the currently active language, it will return the correct phrase tied to a specific language.
  */
 
 //Language constant, used to set the language
