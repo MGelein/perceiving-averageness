@@ -22,6 +22,10 @@ $(document).ready(function(){
     });
     //Also actually trigger it a first time
     $(window).resize();
+    //Prevent caching of AJAX requests
+    $.ajaxSetup({cache:false});
+    //Load the language file
+    loadLang();
 });
 
 
