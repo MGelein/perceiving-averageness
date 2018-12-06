@@ -52,6 +52,27 @@ function getProbability(zVal) {
 }
 
 /**
+ * Returns where you are on the normal height distribution for the
+ * average Dutch citizen. Provide height IN CENTIMETERS
+ * @param {Integer} gender either MALE or FEMALE
+ * @param {Number} height a floating point number representing your height. IN CENTIMETERS
+ */
+function getHeightDistribution(gender, height){
+    //Get the mean height for your gender
+    let mean = (gender === MALE) ? 183.8 : 170.7;
+    //Get the standard deviation for your gender
+    let sd  = (gender === MALE) ? 7.1 : 6.3;
+    //Now ask for the probability to be on that curve
+    let prob = getChance(height, mean, sd);
+    //Check if we are below or above average
+    if(height < mean){
+        return {smaller: prob, taller: 1 - prob};
+    }else{
+        return {smaller: 1 - prob, taller: prob};
+    }
+}
+
+/**
  * z-index table
  */
 const probabilities = [[.0003, .0005, .0007, .0010, .0013, .0019, .0026, .0035, .0047, .0062, .0082, .0107, .0139, .0179, .0228, .0287, .0359, .0446, .0548, .0668, .0808, .0968, .1151, .1357, .1587, .1841, .2119, .2420, .2743, .3085, .3446, .3821, .4207, .4602, .5000,],

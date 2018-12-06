@@ -6,6 +6,11 @@
 var SKETCH_WIDTH = 1280;
 var SKETCH_HEIGHT = 720;
 
+//Use of constants to prevent having to type gender
+const MALE = 0;
+//Use of constants to prevent having to type gender
+const FEMALE = 1;
+
 /**
  * Entry point of the P5 code, separate from
  * the JQuery entry point
