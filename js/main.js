@@ -19,7 +19,7 @@ function setup(){
     //Resolution later on.
     frameRate(60);
 
-    add("thingy", "h1", "Testing");
+    //add("thingy", "input type='text'", "Testing");
 }
 
 /**
