@@ -63,6 +63,9 @@ function draw() {
     updateModals();
 }
 
+/**
+ * Catches any mouseclicks, mostly used for dev stuff now
+ */
 function mousePressed() {
     //Create a new modal
     let m = new Modal();

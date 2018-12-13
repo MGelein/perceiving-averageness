@@ -4,15 +4,19 @@
  * display shit on screen
  */
 const MODAL_Y = 30;
+const MODAL_W = 1200;
+const MODAL_H = 600;
+const MODAL_X = 40;
+const SHADOW_OFF = 4;
 
 /**
  * Creates a new modal
  */
 function Modal() {
     //The position we're currently at
-    this.pos = { x: 4000, y: MODAL_Y };
+    this.pos = { x: 2000, y: MODAL_Y };
     //The position we want to be in
-    this.targetPos = { x: 4000, y: MODAL_Y };
+    this.targetPos = { x: 2000, y: MODAL_Y };
     //If we're on our way out
     this.dying = false;
     //If we're ready to be removed
@@ -39,7 +43,7 @@ function Modal() {
      */
     this.hide = function () {
         //Set target position outside of screen
-        this.targetPos = { x: -2000, y: MODAL_Y };
+        this.targetPos = { x: -MODAL_W - MODAL_X, y: MODAL_Y };
         //Set dying to true
         this.dying = true;
     }
@@ -49,7 +53,7 @@ function Modal() {
      */
     this.show = function () {
         //Set target position inside of the screen
-        this.targetPos = { x: 50, y: MODAL_Y };
+        this.targetPos = { x: MODAL_X, y: MODAL_Y };
         //Set dying to false
         this.dying = false;
         //Add myself to the list of modals
@@ -61,10 +65,19 @@ function Modal() {
      * Render this modal
      */
     this.render = function () {
+        //Don't draw if out of bounds
+        if(this.pos.x > width || this.pos.x < -MODAL_W) return;
+        if(this.pos.y > height || this.pos.y < -MODAL_H) return;
+        //First draw a dropshadow
+        noStroke();
+        fill(0, 80);//Translucent black
+        //Draw the rectangle
+        rect(this.pos.x + SHADOW_OFF, this.pos.y + SHADOW_OFF, MODAL_W, MODAL_H, 10);
+        //Now draw the rect shadow
         //Fill the rectangle
         stroke(colorB);
         fill(colorD);
         //Draw the rectangle
-        rect(this.pos.x, this.pos.y, 1200, 600, 10);
+        rect(this.pos.x, this.pos.y, MODAL_W, MODAL_H, 10);
     }
 }
