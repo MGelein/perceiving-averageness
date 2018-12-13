@@ -84,6 +84,11 @@ function getBMI(height, weight){
     return weight / (height * height);
 }
 
+//Use of constants to prevent having to type gender
+const MALE = 0;
+//Use of constants to prevent having to type gender
+const FEMALE = 1;
+
 /**
  * z-index table
  */
