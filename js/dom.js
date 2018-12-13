@@ -28,6 +28,22 @@ $(document).ready(function(){
     loadLang();
 });
 
+//If we use the hand icon
+var USE_POINTER = false
+/**
+ * Sets the hoverhand status on the document, used to make 
+ * onhover effects
+ * @param {Boolean} enabled 
+ */
+function setHover(enabled){
+    if(USE_POINTER != enabled){//Only change CSS if we're really changing shit
+        if(enabled) $('body').attr('style', 'cursor:pointer;');
+        else $('body').attr('style', 'cursor:default;');
+        //Now also update the flag
+        USE_POINTER = enabled;
+    }
+}
+
 
 /**
  * Adds a new element to the document. Use the provided tagname and

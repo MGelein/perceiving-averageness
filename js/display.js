@@ -35,10 +35,14 @@ function Modal(titleText, questionText) {
         let dx = this.pos.x - this.targetPos.x;
         let dy = this.pos.y - this.targetPos.y;
         //See if we're close to the target, if we're dying and close enough, we can be removed from the list of modals
-        if (dx + dy < 0.5 && this.dying) {
+        if (abs(dx + dy) < 0.5 && this.dying) {
             this.dead = true;
             //And remove all components
-            components = [];
+            this.components.forEach(function(c){
+                //Remove these DOM elements
+                $('#' + c.id).remove()
+            });
+            this.components = [];
         }
         //Now ease towards that position
         this.pos.x -= dx * EASE_FACTOR;
@@ -55,9 +59,15 @@ function Modal(titleText, questionText) {
     /**
      * Set target position outside of the screen
      */
-    this.hide = function () {
+    this.hide = function (backwards) {
+        //Ignore any more hide commands after you've had one
+        if(this.dying) return;
+        //Explicitly set backwards to false if not set
+        if(!backwards) backwards = false;
         //Set target position outside of screen
         this.targetPos = { x: -MODAL_W - MODAL_X, y: MODAL_Y };
+        //Dissappear on the other side
+        if(backwards) this.targetPos = {x: MODAL_W * 2, y: MODAL_Y};
         //Set dying to true
         this.dying = true;
     }
@@ -65,9 +75,13 @@ function Modal(titleText, questionText) {
     /**
      * Set the target position inside of the screen
      */
-    this.show = function () {
+    this.show = function (backwards) {
+        //Explicitly set backwards to false if not set
+        if(!backwards) backwards = false;
         //Set target position inside of the screen
         this.targetPos = { x: MODAL_X, y: MODAL_Y };
+        //If we're coming in from the other position, set us to come from there
+        if(backwards) this.pos = {x: -MODAL_W - MODAL_X, y: MODAL_Y};
         //Set dying to false
         this.dying = false;
         //Add myself to the list of modals

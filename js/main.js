@@ -26,6 +26,8 @@ var colorD;
  * Slide number
  */
 var slideNumber = -1;
+//Location of  the slide markers
+var markers = [];
 
 /**
  * Sets the colors to their values
@@ -75,13 +77,51 @@ function draw() {
 }
 
 /**
- * Continue on to the next slide
+ * Used to handle button presses, first and foremost for the header
  */
-function nextSlide() {
+function mousePressed(){
+    //Only react to header clicks
+    if(mouseY < 80){
+        //Check every marker
+        let clickedIndex = -1;
+        for(let i = 0; i < markers.length; i++){
+            //Calculate distance on axis
+            let dx = mouseX - markers[i].x;
+            let dy = mouseY - markers[i].y;
+            //Skip this one if we're already too far away
+            if(dx > 15 || dy > 15) continue;
+            //Calculate distance
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if(dist < 15){
+                //This was the clicked one, break
+                clickedIndex = i;
+                break;
+            }
+        }
+        //If we did click something, go to that question, also if we aren't there yet
+        if(clickedIndex != -1 && clickedIndex != slideNumber){
+            gotoSlide(clickedIndex);
+        }
+    } 
+}
+
+/**
+ * Goto next slide
+ */
+function nextSlide(){
+    gotoSlide(slideNumber + 1);
+}
+
+/**
+ * Go to any slide
+ */
+function gotoSlide(num) {
+    //See if we're going back
+    let backwards = num < slideNumber;
     //Hide all current modals
-    modals.map(function (m) { m.hide() });
+    modals.map(function (m) { m.hide(backwards) });
     //Increase slidenumber
-    slideNumber++;
+    slideNumber = num;
     //Make a new modal
     let modal = new Modal(getTitle(), getQuestion());
     //Switch slidenumber, to get the correct slide layout
@@ -99,7 +139,7 @@ function nextSlide() {
             break;
     }
     //Finally show the modal
-    modal.show();
+    modal.show(backwards);
 }
 
 /**
@@ -131,6 +171,23 @@ function updateHeader() {
     rect(-10, -10, SKETCH_WIDTH + 20, 80);
     //Draw the question makrers depending on slideNumber
     drawSlideMarker(slideNumber);
+    //Also check hover
+    let hover = false;
+    for(let i = 0; i < markers.length; i++){
+        //Calculate distance on axis
+        let dx = mouseX - markers[i].x;
+        let dy = mouseY - markers[i].y;
+        //Skip this one if we're already too far away
+        if(dx > 15 || dy > 15) continue;
+        //Calculate distance
+        let dist = Math.sqrt(dx * dx + dy * dy);
+        if(dist < 15){
+            //This was the clicked one, break
+            hover = true;
+        }
+    }
+    //Set the hand icon to be matching if we hover
+    setHover(hover);
 }
 
 /**
@@ -138,6 +195,10 @@ function updateHeader() {
  * @param {Number} num 
  */
 function drawSlideMarker(num) {
+    //See if we have to init marker array
+    let createMarkers = false;
+    if(markers.length == 0) createMarkers = true;
+    //Some constants for spacing
     const startX = 140;
     const startY = 35;
     const stepX = 100;
@@ -162,6 +223,8 @@ function drawSlideMarker(num) {
             stroke(colorA);
             ellipse(i * stepX + startX, startY, radius * 1.3, radius * 1.3);
         }
+        //If we're making the marker array, add the coords
+        if(createMarkers) markers.push({x: i * stepX + startX, y: startY});
     }
 }
 
