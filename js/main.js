@@ -82,9 +82,7 @@ function nextSlide(){
     //Switch slidenumber, to get the correct slide layout
     switch(slideNumber){
         case 0:
-            modal.add(new Question(getS("LANG_SELECT")))
-            modal.add(new Button("Nederlands", 30, 200));
-            modal.add(new Button("English", 300, 200));
+            slideOne(modal);
         break;
         case 1: 
         break;
@@ -97,7 +95,6 @@ function nextSlide(){
     }
     //Finally show the modal
     modal.show();
-    console.log(modal.components);
 }
 
 /**

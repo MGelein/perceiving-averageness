@@ -149,8 +149,9 @@ function Question(text) {
  * @param {String} text 
  * @param {Number} posX
  * @param {Number} posY
+ * @param {Function} callBackFn click handler
  */
-function Button(text, posX, posY) {
+function Button(text, posX, posY, callBackFn) {
     //Save the text we're going to draw
     this.string = text;
     //Our own position, relative to the modal
@@ -158,7 +159,8 @@ function Button(text, posX, posY) {
     //Make this text have an id of its milliseconds creation time
     this.id = "question_" + (new Date()).getTime();
     //Create the component
-    add(this.id, "button", text).addClass('btn btn-primary btn-lg');
+    let jqRef = add(this.id, "button", text).addClass('btn btn-primary btn-lg');
+    jqRef.unbind('click').click(callBackFn);
 
     /**
      * Renders this component
