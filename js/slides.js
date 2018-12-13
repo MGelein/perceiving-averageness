@@ -7,14 +7,5 @@
  * @param {Modal} m 
  */
 function slideOne(m){
-    //Nederlands button, set language and go to next slide
-    m.add(new Button("Nederlands", 30, 200, function(){
-        setLanguage(DUTCH);
-        nextSlide();
-    }));
-    //English utton, set language and go to next slide
-    m.add(new Button("English", 300, 200, function(){
-        setLanguage(ENGLISH);
-        nextSlide();
-    }));
+    
 }
