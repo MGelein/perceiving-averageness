@@ -3,7 +3,7 @@ HTML OVERRIDES
 **/
 *{
     position: absolute;
-    font-size: 200%;
+    font-size: 150%;
     /*CSS transitions*/
     -o-transition-property: none !important;
     -moz-transition-property: none !important;

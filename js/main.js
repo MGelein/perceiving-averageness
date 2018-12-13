@@ -78,7 +78,7 @@ function nextSlide(){
     //Increase slidenumber
     slideNumber ++;
     //Make a new modal
-    let modal = new Modal(getTitle());
+    let modal = new Modal(getTitle(), getQuestion());
     //Switch slidenumber, to get the correct slide layout
     switch(slideNumber){
         case 0:
@@ -102,6 +102,13 @@ function nextSlide(){
  */
 function getTitle(){
     return getS("TITLE_" + slideNumber);
+}
+
+/**
+ * Returns the question for this slide
+ */
+function getQuestion(){
+    return getS("QUEST_" + slideNumber);
 }
 
 /**

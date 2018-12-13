@@ -3,18 +3,19 @@
  * This document contains all the classes that are used to
  * display shit on screen
  */
-const MODAL_Y = 30;
+const MODAL_Y = 100;
 const MODAL_W = 1200;
-const MODAL_H = 600;
+const MODAL_H = 530;
 const MODAL_X = 40;
 const SHADOW_OFF = 4;
 
 /**
  * Creates a new modal
  */
-function Modal(titleText) {
-    //Create the title
+function Modal(titleText, questionText) {
+    //Create the title and question
     let title = new Title(titleText);
+    let question = new Question(questionText);
     //The position we're currently at
     this.pos = { x: 2000, y: MODAL_Y };
     //The position we want to be in
@@ -24,7 +25,7 @@ function Modal(titleText) {
     //If we're ready to be removed
     this.dead = false;
     //List of components that we need to render
-    this.components = [title];
+    this.components = [title, question];
 
     /**
      * Updates this modal, makes it move etc.
@@ -133,7 +134,7 @@ function Question(text) {
     //Make this text have an id of its milliseconds creation time
     this.id = "question_" + (new Date()).getTime();
     //Create the component
-    add(this.id, "h2", text);
+    add(this.id, "h3", text);
 
     /**
      * Renders this component
@@ -160,7 +161,7 @@ function Button(text, posX, posY, callBackFn) {
     this.id = "question_" + (new Date()).getTime();
     //Create the component
     let jqRef = add(this.id, "button", text).addClass('btn btn-primary btn-lg');
-    jqRef.unbind('click').click(callBackFn);
+    $('#' + this.id).unbind('click').click(callBackFn);
 
     /**
      * Renders this component
