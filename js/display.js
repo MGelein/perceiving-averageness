@@ -12,7 +12,9 @@ const SHADOW_OFF = 4;
 /**
  * Creates a new modal
  */
-function Modal() {
+function Modal(titleText) {
+    //Create the title
+    let title = new Title(titleText);
     //The position we're currently at
     this.pos = { x: 2000, y: MODAL_Y };
     //The position we want to be in
@@ -21,6 +23,8 @@ function Modal() {
     this.dying = false;
     //If we're ready to be removed
     this.dead = false;
+    //List of components that we need to render
+    this.components = [title];
 
     /**
      * Updates this modal, makes it move etc.
@@ -79,5 +83,31 @@ function Modal() {
         fill(colorD);
         //Draw the rectangle
         rect(this.pos.x, this.pos.y, MODAL_W, MODAL_H, 10);
+        var selfRef = this;
+
+        //Now render each of the components
+        this.components.forEach(function(c){c.render(selfRef)});
+    }
+}
+
+/**
+ * Creates a new Title component for the modals
+ */
+function Title(text){
+    //Save the text we're going to draw
+    this.string = text;
+    //Our own position, relative to the modal
+    this.pos = {x: 30, y: 10};
+    //Make this text have an id of its milliseconds creation time
+    this.id = "title_"+ (new Date()).getTime();
+    //Create the component
+    add(this.id, "h1", text);
+
+    /**
+     * Renders this component
+     */
+    this.render = function(modal){
+        //Set the position according to the modal position, and our position
+        pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
     }
 }

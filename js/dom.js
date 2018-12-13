@@ -39,7 +39,11 @@ $(document).ready(function(){
  */
 function addElement(id, tagName, innerHTML){
     //Append the html for the new object
-    $('body').append("<" + tagName + " id='" + id + "'>" + innerHTML + "</" + tagName + ">");
+    $('body').append("<" + tagName + " style='display:none;' id='" + id + "'>" + innerHTML + "</" + tagName + ">");
+    //Set the position of the element offscreen
+    pos(id, -10000, -10000);
+    //Show the object
+    $('#' + id).show();
     //now return the object we added
     return $('#' + id);
 }

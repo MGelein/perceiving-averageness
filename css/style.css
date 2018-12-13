@@ -1,12 +1,16 @@
 /**
 HTML OVERRIDES
 **/
+*{
+    position: absolute;
+}
+
 body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+    width: 200vw;
+    height: 300vh;
 }
 
 canvas{
@@ -15,8 +19,8 @@ canvas{
     z-index: -1;
 }
 
-*{
-    position: absolute;
+h1{
+   color: white;
 }
 
 /**

@@ -68,7 +68,7 @@ function draw() {
  */
 function mousePressed() {
     //Create a new modal
-    let m = new Modal();
+    let m = new Modal(getS("TITLE"));
     //Hide all other modals
     modals.forEach(function(m){m.hide();});
     //Show it
