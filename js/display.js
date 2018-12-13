@@ -36,10 +36,19 @@ function Modal(titleText) {
         //See if we're close to the target, if we're dying and close enough, we can be removed from the list of modals
         if (dx + dy < 0.5 && this.dying) {
             this.dead = true;
+            //And remove all components
+            components = [];
         }
         //Now ease towards that position
         this.pos.x -= dx * EASE_FACTOR;
         this.pos.y -= dy * EASE_FACTOR;
+    }
+
+    /**
+     * Adds a new component to this modal
+     */
+    this.add = function(comp){
+        this.components.push(comp);
     }
 
     /**
@@ -70,8 +79,8 @@ function Modal(titleText) {
      */
     this.render = function () {
         //Don't draw if out of bounds
-        if(this.pos.x > width || this.pos.x < -MODAL_W) return;
-        if(this.pos.y > height || this.pos.y < -MODAL_H) return;
+        if (this.pos.x > width || this.pos.x < -MODAL_W) return;
+        if (this.pos.y > height || this.pos.y < -MODAL_H) return;
         //First draw a dropshadow
         noStroke();
         fill(0, 80);//Translucent black
@@ -86,27 +95,75 @@ function Modal(titleText) {
         var selfRef = this;
 
         //Now render each of the components
-        this.components.forEach(function(c){c.render(selfRef)});
+        this.components.forEach(function (c) { c.render(selfRef) });
     }
 }
 
 /**
  * Creates a new Title component for the modals
  */
-function Title(text){
+function Title(text) {
     //Save the text we're going to draw
     this.string = text;
     //Our own position, relative to the modal
-    this.pos = {x: 30, y: 10};
+    this.pos = { x: 30, y: 10 };
     //Make this text have an id of its milliseconds creation time
-    this.id = "title_"+ (new Date()).getTime();
+    this.id = "title_" + (new Date()).getTime();
     //Create the component
     add(this.id, "h1", text);
 
     /**
      * Renders this component
      */
-    this.render = function(modal){
+    this.render = function (modal) {
+        //Set the position according to the modal position, and our position
+        pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
+    }
+}
+
+/**
+ * Creates a new question component to show
+ * @param {String} text 
+ */
+function Question(text) {
+    //Save the text we're going to draw
+    this.string = text;
+    //Our own position, relative to the modal
+    this.pos = { x: 30, y: 100 };
+    //Make this text have an id of its milliseconds creation time
+    this.id = "question_" + (new Date()).getTime();
+    //Create the component
+    add(this.id, "h2", text);
+
+    /**
+     * Renders this component
+     */
+    this.render = function (modal) {
+        //Set the position according to the modal position, and our position
+        pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
+    }
+}
+
+/**
+ * Creates a new button component with the provided text
+ * @param {String} text 
+ * @param {Number} posX
+ * @param {Number} posY
+ */
+function Button(text, posX, posY) {
+    //Save the text we're going to draw
+    this.string = text;
+    //Our own position, relative to the modal
+    this.pos = { x: posX, y: posY };
+    //Make this text have an id of its milliseconds creation time
+    this.id = "question_" + (new Date()).getTime();
+    //Create the component
+    add(this.id, "button", text).addClass('btn btn-primary btn-lg');
+
+    /**
+     * Renders this component
+     */
+    this.render = function (modal) {
         //Set the position according to the modal position, and our position
         pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
     }

@@ -22,15 +22,19 @@ var colorC;
  * Color D is a n even lighter version of Color C, thus colorA
  */
 var colorD;
+/**
+ * Slide number
+ */
+var slideNumber = -1;
 
 /**
  * Sets the colors to their values
  */
 function setColors() {
-    colorA = color(255, 66, 75);
+    colorA = color(0, 123, 255);
     colorB = color(255, 255, 255);
-    colorC = color(255, 122, 129);
-    colorD = color(255, 160, 170);
+    colorC = color(120, 200, 255);
+    colorD = color(190, 220, 255);
 }
 
 /**List of all modals currently on screen */
@@ -49,6 +53,8 @@ function setup() {
     frameRate(30);
     //Load the color definitions
     setColors();
+    //Show the first slide
+    nextSlide();
 }
 
 /**
@@ -64,15 +70,41 @@ function draw() {
 }
 
 /**
- * Catches any mouseclicks, mostly used for dev stuff now
+ * Continue on to the next slide
  */
-function mousePressed() {
-    //Create a new modal
-    let m = new Modal(getS("TITLE"));
-    //Hide all other modals
-    modals.forEach(function(m){m.hide();});
-    //Show it
-    m.show();
+function nextSlide(){
+    //Hide all current modals
+    modals.map(function(m){m.hide()});
+    //Increase slidenumber
+    slideNumber ++;
+    //Make a new modal
+    let modal = new Modal(getTitle());
+    //Switch slidenumber, to get the correct slide layout
+    switch(slideNumber){
+        case 0:
+            modal.add(new Question(getS("LANG_SELECT")))
+            modal.add(new Button("Nederlands", 30, 200));
+            modal.add(new Button("English", 300, 200));
+        break;
+        case 1: 
+        break;
+        case 2:
+        break;
+        case 3:
+        break;
+        case 4:
+        break;
+    }
+    //Finally show the modal
+    modal.show();
+    console.log(modal.components);
+}
+
+/**
+ * Gets the appropriate title for the current slide
+ */
+function getTitle(){
+    return getS("TITLE_" + slideNumber);
 }
 
 /**
