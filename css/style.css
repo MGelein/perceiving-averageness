@@ -4,6 +4,7 @@ HTML OVERRIDES
 *{
     position: absolute;
     font-size: 150%;
+    color: rgb(20, 20, 50);
     /*CSS transitions*/
     -o-transition-property: none !important;
     -moz-transition-property: none !important;
@@ -40,6 +41,10 @@ canvas{
 
 h1{
    color: white;
+}
+
+h3{
+    color: rgb(40, 40, 80);
 }
 
 /**

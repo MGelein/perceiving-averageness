@@ -291,27 +291,31 @@ function drawSlideMarker(num) {
     //Some constants for spacing
     const startX = 140;
     const startY = 35;
-    const stepX = 111;
+    const stepX = 100;
     const radius = 30;
     //First draw a line
     strokeWeight(9);
     stroke(colorA);
     line(-10, startY, SKETCH_WIDTH + 20, startY);
     strokeWeight(3);
+    let r2 = radius / 2;
     //For all questions
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 11; i++) {
         if (i < num) {//Questions we've had
             fill(colorC);
             stroke(colorA);
-            ellipse(i * stepX + startX, startY, radius, radius);
+            if(i == 0) rect(i * stepX + startX - r2, startY - r2 , radius, radius);
+            else ellipse(i * stepX + startX, startY, radius, radius);
         } else if (i > num) {//Question's we haven't reached
             fill(colorD);
             stroke(colorA);
-            ellipse(i * stepX + startX, startY, radius, radius);
+            if(i == 0) rect(i * stepX + startX - r2, startY - r2, radius, radius);
+            else ellipse(i * stepX + startX, startY, radius, radius);
         } else {//The question we're at right now
             fill(colorB);
             stroke(colorA);
-            ellipse(i * stepX + startX, startY, radius * 1.3, radius * 1.3);
+            if(i == 0) rect(i * stepX + startX - r2, startY - r2, radius, radius);
+            else ellipse(i * stepX + startX, startY, radius * 1.3, radius * 1.3);
         }
         //If we're making the marker array, add the coords
         if (createMarkers) markers.push({ x: i * stepX + startX, y: startY });

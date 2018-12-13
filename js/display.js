@@ -38,7 +38,7 @@ function Modal(titleText, questionText) {
         if (abs(dx + dy) < 0.5 && this.dying) {
             this.dead = true;
             //And remove all components
-            this.components.forEach(function(c){
+            this.components.forEach(function (c) {
                 //Remove these DOM elements
                 $('#' + c.id).remove()
             });
@@ -52,7 +52,7 @@ function Modal(titleText, questionText) {
     /**
      * Adds a new component to this modal
      */
-    this.add = function(comp){
+    this.add = function (comp) {
         this.components.push(comp);
     }
 
@@ -61,13 +61,13 @@ function Modal(titleText, questionText) {
      */
     this.hide = function (backwards) {
         //Ignore any more hide commands after you've had one
-        if(this.dying) return;
+        if (this.dying) return;
         //Explicitly set backwards to false if not set
-        if(!backwards) backwards = false;
+        if (!backwards) backwards = false;
         //Set target position outside of screen
         this.targetPos = { x: -MODAL_W - MODAL_X, y: MODAL_Y };
         //Dissappear on the other side
-        if(backwards) this.targetPos = {x: MODAL_W * 2, y: MODAL_Y};
+        if (backwards) this.targetPos = { x: MODAL_W * 2, y: MODAL_Y };
         //Set dying to true
         this.dying = true;
     }
@@ -77,11 +77,11 @@ function Modal(titleText, questionText) {
      */
     this.show = function (backwards) {
         //Explicitly set backwards to false if not set
-        if(!backwards) backwards = false;
+        if (!backwards) backwards = false;
         //Set target position inside of the screen
         this.targetPos = { x: MODAL_X, y: MODAL_Y };
         //If we're coming in from the other position, set us to come from there
-        if(backwards) this.pos = {x: -MODAL_W - MODAL_X, y: MODAL_Y};
+        if (backwards) this.pos = { x: -MODAL_W - MODAL_X, y: MODAL_Y };
         //Set dying to false
         this.dying = false;
         //Add myself to the list of modals
@@ -144,7 +144,7 @@ function Question(text) {
     //Save the text we're going to draw
     this.string = text;
     //Our own position, relative to the modal
-    this.pos = { x: 30, y: 100 };
+    this.pos = { x: 30, y: 80 };
     //Make this text have an id of its milliseconds creation time
     this.id = "question_" + (new Date()).getTime();
     //Create the component
@@ -176,6 +176,32 @@ function Button(text, posX, posY, callBackFn) {
     //Create the component
     let jqRef = add(this.id, "button", text).addClass('btn btn-primary btn-lg');
     $('#' + this.id).unbind('click').click(callBackFn);
+
+    /**
+     * Renders this component
+     */
+    this.render = function (modal) {
+        //Set the position according to the modal position, and our position
+        pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
+    }
+}
+
+/**
+ * Adds a paragraph to the components list
+ * @param {Number} posX 
+ * @param {Number} posY 
+ * @param {Number} width 
+ * @param {String} text 
+ */
+function Para(posX, posY, width, text) {
+    //Save the text we're going to draw
+    this.string = text;
+    //Our own position, relative to the modal
+    this.pos = { x: posX, y: posY };
+    //Make this text have an id of its milliseconds creation time
+    this.id = "par_" + (new Date()).getTime();
+    //Create the component
+    let jqRef = par(this.id, width, text);
 
     /**
      * Renders this component

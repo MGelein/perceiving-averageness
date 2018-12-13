@@ -74,6 +74,17 @@ function addElement(id, tagName, innerHTML){
 const add = addElement;
 
 /**
+ * Adds a new paragraph, and returns a reference to the JQ selection
+ * @param {String} id 
+ * @param {Number} width 
+ * @param {The text} text 
+ * @return the JQuery selection of the element
+ */
+function par(id, width, text){
+    return add(id, "p", text).attr('style', 'width: ' + width + 'px;');
+}
+
+/**
  * Sets the element with the given id to the provided positions
  * @param {String} id  the id of the element
  * @param {Number} x   the x-coord we have to place the element at.
