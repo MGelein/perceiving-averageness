@@ -46,7 +46,6 @@ h1{
 h3{
     color: rgb(40, 40, 80);
 }
-
 /**
 BOOTSTRAP OVERRIDES
 **/
@@ -54,6 +53,10 @@ BOOTSTRAP OVERRIDES
 /**
 CUSTOM CLASSES
 **/
+.textfield{
+    width: 50vw!important;
+    max-width: 50vw!important;
+}
 
 /**
 CUSTOM ID's

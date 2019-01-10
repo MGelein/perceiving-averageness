@@ -26,3 +26,5 @@ TITLE_9#Vraag 9: Burgelijke Status#Question 9: Marital Status
 QUEST_9#Wat is uw burgerlijke status?#What is your marital status?
 TITLE_10#Vraag 10: Migratie Achtergrond#Question 10: Migration Background
 QUEST_10#Wat is uw migratie achtergrond?#What is your migration background?
+TYPE_HERE#Typ hier#Type here
+SKIP#Overslaan#Skip

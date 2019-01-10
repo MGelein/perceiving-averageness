@@ -57,6 +57,21 @@ function Modal(titleText, questionText) {
     }
 
     /**
+     * Removes everything but the title component
+     */
+    this.empty = function(){
+        //Save the title
+        let title = this.components[0];
+        //And remove all components
+        this.components.forEach(function (c) {
+            //Skip the title
+            if(c == title) return;
+            //Remove these DOM elements
+            $('#' + c.id).fadeOut();
+        });
+    }
+
+    /**
      * Set target position outside of the screen
      */
     this.hide = function (backwards) {
@@ -176,6 +191,34 @@ function Button(text, posX, posY, callBackFn) {
     //Create the component
     let jqRef = add(this.id, "button", text).addClass('btn btn-primary btn-lg');
     $('#' + this.id).unbind('click').click(callBackFn);
+
+    /**
+     * Renders this component
+     */
+    this.render = function (modal) {
+        //Set the position according to the modal position, and our position
+        pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
+    }
+}
+
+/**
+ * Creates a new text input. This can be used to receive text from the user.
+ * @param {String} placeHolder 
+ * @param {Number} posX 
+ * @param {Number} posY 
+ * @param {Function} callBackFn 
+ */
+function InputField(placeHolder, posX, posY, callBackFn){
+    //Save the text we're going to draw
+    this.string = placeHolder;
+    //Our own position, relative to the modal
+    this.pos = { x: posX, y: posY };
+    //Make this text have an id of its milliseconds creation time
+    this.id = "Input_" + (new Date()).getTime();
+    //Create the component
+    let jqRef = add(this.id, "input", "").addClass('form-control');
+    $('#' + this.id).unbind('keyup').keyup((event) => {callBackFn(event)}).attr('type', 'text');
+    jqRef.attr('placeholder', placeHolder).addClass('textfield');
 
     /**
      * Renders this component

@@ -220,6 +220,7 @@ function gotoSlide(num) {
             slideOne(modal);
             break;
         case 1:
+            slideTwo(modal);
             break;
         case 2:
             break;
