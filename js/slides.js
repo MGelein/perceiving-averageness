@@ -49,5 +49,9 @@ function visTwo(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
-    m.add(new Para(30, 80, SKETCH_WIDTH - 200, getS("NAME")));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 200, getS("NAME_RESULT")));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
 }
