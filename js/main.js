@@ -223,6 +223,7 @@ function gotoSlide(num) {
             slideTwo(modal);
             break;
         case 2:
+            slideThree(modal);
             break;
         case 3:
             break;
