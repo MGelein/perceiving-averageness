@@ -47,4 +47,7 @@ function visTwo(m){
     listDone.two = true;
     //Empty the visualization
     m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 200, getS("NAME")));
 }

@@ -230,6 +230,33 @@ function InputField(placeHolder, posX, posY, callBackFn){
 }
 
 /**
+ * Creates a new Image
+ * @param {String} url
+ * @param {Number} posX 
+ * @param {Number} posY 
+ * @param {Number} w
+ * @param {Number} h
+ */
+function Picture(url, posX, posY, w, h){
+    //Our own position, relative to the modal
+    this.pos = { x: posX, y: posY };
+    //Make this text have an id of its milliseconds creation time
+    this.id = "Image_" + (new Date()).getTime();
+    //Create the component
+    let jqRef = add(this.id, "img", "").attr('src', url);
+    if(w && w != -1) jqRef.attr('width', w);
+    if(h && h != -1) jqRef.attr('height', h);
+
+    /**
+     * Renders this component
+     */
+    this.render = function (modal) {
+        //Set the position according to the modal position, and our position
+        pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
+    }
+}
+
+/**
  * Adds a paragraph to the components list
  * @param {Number} posX 
  * @param {Number} posY 
