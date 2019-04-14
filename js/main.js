@@ -237,17 +237,20 @@ function gotoSlide(num) {
         case 6:
             slideSeven(modal);
             break;
-        case 8:
+        case 7:
             slideEight(modal);
             break;
-        case 9:
+        case 8:
             slideNine(modal);
             break;
-        case 10:
+        case 9:
             slideTen(modal);
             break;
-        case 11:
+        case 10:
             slideEleven(modal);
+            break;
+        case 11:
+            slideFinal(modal);
             break;
     }
     //Finally show the modal
