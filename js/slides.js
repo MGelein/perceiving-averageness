@@ -108,6 +108,17 @@ function slideFour(m){
         visFour(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
@@ -137,6 +148,17 @@ function slideFive(m){
         visFive(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
@@ -165,6 +187,17 @@ function slideSix(m){
         visSix(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
@@ -193,6 +226,17 @@ function slideSeven(m){
         visSeven(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
@@ -221,6 +265,17 @@ function slideEight(m){
         visEight(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
@@ -249,6 +304,17 @@ function slideNine(m){
         visNine(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
@@ -277,6 +343,17 @@ function slideTen(m){
         visTen(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
@@ -305,6 +382,17 @@ function slideEleven(m){
         visEleven(m);
         return;
     }
+    //Else display the question
+    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
+        //Catch enter to also show vis
+        if(event.keyCode == 13){
+            visThree(m);
+        }
+    }));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto data visualization
+        visThree(m);
+    }));
 }
 
 /**
