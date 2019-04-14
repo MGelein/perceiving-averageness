@@ -49,7 +49,7 @@ function visTwo(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
-    m.add(new Para(30, 80, SKETCH_WIDTH - 180, getS("NAME_RESULT")));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 160, getS("NAME_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -90,9 +90,98 @@ function visThree(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
-    m.add(new Para(30, 80, SKETCH_WIDTH - 180, getS("SURNAME_RESULT")));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("SURNAME_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
     }));
+}
+
+/**
+ * All extra stuff for the age question
+ * @param {Modal} m 
+ */
+function slideFour(m){
+    if(listDone.four) {
+        visFour(m);
+        return;
+    }
+}
+
+
+/**
+ * All extra stuff for the gender question
+ * @param {Modal} m 
+ */
+function slideFive(m){
+    if(listDone.five) {
+        visFive(m);
+        return;
+    }
+}
+
+/**
+ * All extra stuff for the length question
+ * @param {Modal} m 
+ */
+function slideSix(m){
+    if(listDone.six) {
+        visSix(m);
+        return;
+    }
+}
+
+/**
+ * All extra stuff for the weight question
+ * @param {Modal} m 
+ */
+function slideSeven(m){
+    if(listDone.seven) {
+        visSeven(m);
+        return;
+    }
+}
+
+/**
+ * All extra stuff for the education question
+ * @param {Modal} m 
+ */
+function slideEight(m){
+    if(listDone.eight) {
+        visEight(m);
+        return;
+    }
+}
+
+/**
+ * All extra stuff for the income question
+ * @param {Modal} m 
+ */
+function slideNine(m){
+    if(listDone.nine) {
+        visNine(m);
+        return;
+    }
+}
+
+/**
+ * All extra stuff for the marital status question
+ * @param {Modal} m 
+ */
+function slideTen(m){
+    if(listDone.ten) {
+        visTen(m);
+        return;
+    }
+}
+
+/**
+ * All extra stuff for the migration question
+ * @param {Modal} m 
+ */
+function slidemigration(m){
+    if(listDone.eleven) {
+        visEleven(m);
+        return;
+    }
 }

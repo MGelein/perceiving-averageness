@@ -10,13 +10,13 @@ TITLE_1#Vraag 1: Voornaam#Question 1: Name
 QUEST_1#Wat is uw voornaam?#What is your name?
 TITLE_2#Vraag 2: Achternaam#Question 2: Surname
 QUEST_2#Wat is uw achternaam?#What is your surname?
-TITLE_3#Vraag 3: Leeftijd#Question 6: Age
+TITLE_3#Vraag 3: Leeftijd#Question 3: Age
 QUEST_3#Wat is uw leeftijd?#What is your age?
-TITLE_4#Vraag 4: Geslacht#Question 3: Gender
+TITLE_4#Vraag 4: Geslacht#Question 4: Gender
 QUEST_4#What is uw geslacht?#What is your gender?
-TITLE_5#Vraag 5: Lengte#Question 4: Height
+TITLE_5#Vraag 5: Lengte#Question 5: Height
 QUEST_5#Wat is uw lengte?#What is your height?
-TITLE_6#Vraag 6: Gewicht#Question 5: Weight
+TITLE_6#Vraag 6: Gewicht#Question 6: Weight
 QUEST_6#Hoeveel weegt u?#What is your weight?
 TITLE_7#Vraag 7: Onderwijs#Question 7: Education
 QUEST_7#Wat is uw onderwijs achtergrond?#What is your educational background?

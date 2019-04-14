@@ -226,8 +226,28 @@ function gotoSlide(num) {
             slideThree(modal);
             break;
         case 3:
+            slideFour(modal);
             break;
         case 4:
+            slideFive(modal);
+            break;
+        case 5:
+            slideSix(modal);
+            break;
+        case 6:
+            slideSeven(modal);
+            break;
+        case 8:
+            slideEight(modal);
+            break;
+        case 9:
+            slideNine(modal);
+            break;
+        case 10:
+            slideTen(modal);
+            break;
+        case 11:
+            slideEleven(modal);
             break;
     }
     //Finally show the modal
