@@ -112,12 +112,12 @@ function slideFour(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visFour(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visFour(m);
     }));
 }
 
@@ -132,6 +132,7 @@ function visFour(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("AGE_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -152,12 +153,12 @@ function slideFive(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visFive(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visFive(m);
     }));
 }
 
@@ -172,6 +173,7 @@ function visFive(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("GENDER_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -191,12 +193,12 @@ function slideSix(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visSix(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visSix(m);
     }));
 }
 
@@ -211,6 +213,7 @@ function visSix(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("LENGTH_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -230,12 +233,12 @@ function slideSeven(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visSeven(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visSeven(m);
     }));
 }
 
@@ -250,6 +253,7 @@ function visSeven(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("WEIGHT_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -269,12 +273,12 @@ function slideEight(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visEight(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visEight(m);
     }));
 }
 
@@ -289,6 +293,7 @@ function visEight(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("EDUCATION_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -308,12 +313,12 @@ function slideNine(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visNine(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visNine(m);
     }));
 }
 
@@ -328,6 +333,7 @@ function visNine(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("INCOME_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -347,12 +353,12 @@ function slideTen(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visTen(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visTen(m);
     }));
 }
 
@@ -367,6 +373,7 @@ function visTen(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("MARITAL_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();
@@ -386,12 +393,12 @@ function slideEleven(m){
     m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
         //Catch enter to also show vis
         if(event.keyCode == 13){
-            visThree(m);
+            visEleven(m);
         }
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
-        visThree(m);
+        visEleven(m);
     }));
 }
 
@@ -406,6 +413,7 @@ function visEleven(m){
     m.empty();
     //Now add the new things
     m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("MIGRATION_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
         nextSlide();

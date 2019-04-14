@@ -29,7 +29,7 @@ $(document).ready(function(){
 });
 
 //If we use the hand icon
-var USE_POINTER = false
+var USE_POINTER = false;
 /**
  * Sets the hoverhand status on the document, used to make 
  * onhover effects
