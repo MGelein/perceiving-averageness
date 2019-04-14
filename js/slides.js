@@ -91,7 +91,7 @@ function visThree(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/surnames.png", 240, 230, -1, 330));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("SURNAME_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -131,7 +131,7 @@ function visFour(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/age.png", 200, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("AGE_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -172,7 +172,7 @@ function visFive(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/gender.png", 200, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("GENDER_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -212,7 +212,7 @@ function visSix(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/height.png", 200, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("LENGTH_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -292,7 +292,7 @@ function visEight(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/education.png", 200, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("EDUCATION_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -332,7 +332,7 @@ function visNine(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/income.png", 200, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("INCOME_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -418,4 +418,12 @@ function visEleven(m){
         //Goto next Slide
         nextSlide();
     }));
+}
+
+/**
+ * The final slide in the presentation. This is the overview slide.
+ * @param {Modal} m 
+ */
+function slideFinal(m){
+    
 }
