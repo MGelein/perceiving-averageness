@@ -2,7 +2,9 @@
  * SLIDES.JS
  * Contains all the creation and layout off the specific slides
  */
-const listDone = {"two": false, "three": false};
+const listDone = {};
+listDone.one = listDone.two = listDone.three = listDone.four = listDone.five = listDone.six = listDone.seven = false;
+listDone.eight = listDone.nine = listDone.ten = listDone.eleven = false;
 
 /**
  * Adds the components for slide one to the modal
@@ -108,6 +110,23 @@ function slideFour(m){
     }
 }
 
+/**
+ * Changes the fourth slide into it's visualization
+ * @param {Modal} m 
+ */
+function visFour(m){
+    //Set this question as answered
+    listDone.four = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
+}
+
 
 /**
  * All extra stuff for the gender question
@@ -118,6 +137,23 @@ function slideFive(m){
         visFive(m);
         return;
     }
+}
+
+/**
+ * Changes the fifth slide into it's visualization
+ * @param {Modal} m 
+ */
+function visFive(m){
+    //Set this question as answered
+    listDone.five = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
 }
 
 /**
@@ -132,6 +168,23 @@ function slideSix(m){
 }
 
 /**
+ * Changes the sixth slide into it's visualization
+ * @param {Modal} m 
+ */
+function visSix(m){
+    //Set this question as answered
+    listDone.six = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
+}
+
+/**
  * All extra stuff for the weight question
  * @param {Modal} m 
  */
@@ -140,6 +193,23 @@ function slideSeven(m){
         visSeven(m);
         return;
     }
+}
+
+/**
+ * Changes the seventh slide into it's visualization
+ * @param {Modal} m 
+ */
+function visSeven(m){
+    //Set this question as answered
+    listDone.seven = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
 }
 
 /**
@@ -154,6 +224,23 @@ function slideEight(m){
 }
 
 /**
+ * Changes the eigth slide into it's visualization
+ * @param {Modal} m 
+ */
+function visEight(m){
+    //Set this question as answered
+    listDone.eight = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
+}
+
+/**
  * All extra stuff for the income question
  * @param {Modal} m 
  */
@@ -162,6 +249,23 @@ function slideNine(m){
         visNine(m);
         return;
     }
+}
+
+/**
+ * Changes the ninth slide into it's visualization
+ * @param {Modal} m 
+ */
+function visNine(m){
+    //Set this question as answered
+    listDone.nine = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
 }
 
 /**
@@ -176,12 +280,46 @@ function slideTen(m){
 }
 
 /**
+ * Changes the tenth slide into it's visualization
+ * @param {Modal} m 
+ */
+function visTen(m){
+    //Set this question as answered
+    listDone.ten = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
+}
+
+/**
  * All extra stuff for the migration question
  * @param {Modal} m 
  */
-function slidemigration(m){
+function slideEleven(m){
     if(listDone.eleven) {
         visEleven(m);
         return;
     }
+}
+
+/**
+ * Changes the eleventh slide into it's visualization
+ * @param {Modal} m 
+ */
+function visEleven(m){
+    //Set this question as answered
+    listDone.eleven = true;
+    //Empty the visualization
+    m.empty();
+    //Now add the new things
+    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Button(getS("CONTINUE"), 30, 400, function(){
+        //Goto next Slide
+        nextSlide();
+    }));
 }
