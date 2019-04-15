@@ -246,7 +246,7 @@ function InputSlider(posX, posY, min, max, step, callBackFn){
     //Create the component
     this.jqRef = add(this.id, "input", "").addClass('form-control');
     $('#' + this.id).unbind('change').change((event) => {callBackFn(event)}).attr('type', 'range');
-    jqRef.attr('step', step).attr('min', min).attr('max', max).attr('style', 'width:600px;');
+    this.jqRef.attr('step', step).attr('min', min).attr('max', max).attr('style', 'width:600px;');
 
     /**
      * Renders this component

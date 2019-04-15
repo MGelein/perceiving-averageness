@@ -211,6 +211,12 @@ function slideSix(m){
             visSix(m);
         }
     }));
+    m.add(new Para(30, 200, 200, getS("OR")));
+    let p = new Para(580, 250, 100, "150cm");
+    m.add(p);
+    m.add(new InputSlider(30, 260, 120, 230, 1, function(event){
+        p.setText($(event.target).val() + "cm");
+    }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visSix(m);
@@ -250,6 +256,13 @@ function slideSeven(m){
         if(event.keyCode == 13){
             visSeven(m);
         }
+    }));
+    m.add(new Para(30, 200, 200, getS("OR")));
+    let p = new Para(580, 250, 100, "50kg");
+    m.add(p);
+    
+    m.add(new InputSlider(30, 260, 50, 120, 1, function(event){
+        p.setText($(event.target).val() + "kg");
     }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
