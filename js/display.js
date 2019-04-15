@@ -230,6 +230,34 @@ function InputField(placeHolder, posX, posY, callBackFn){
 }
 
 /**
+ * Creates a new slider input. This can be used to receive text from the user.
+ * @param {Number} posX 
+ * @param {Number} posY 
+ * @param {Number} min
+ * @param {Number} max
+ * @param {Number} step
+ * @param {Function} callBackFn 
+ */
+function InputSlider(posX, posY, min, max, step, callBackFn){
+    //Our own position, relative to the modal
+    this.pos = { x: posX, y: posY };
+    //Make this text have an id of its milliseconds creation time
+    this.id = "Input_" + (new Date()).getTime();
+    //Create the component
+    this.jqRef = add(this.id, "input", "").addClass('form-control');
+    $('#' + this.id).unbind('change').change((event) => {callBackFn(event)}).attr('type', 'range');
+    jqRef.attr('step', step).attr('min', min).attr('max', max).attr('style', 'width:600px;');
+
+    /**
+     * Renders this component
+     */
+    this.render = function (modal) {
+        //Set the position according to the modal position, and our position
+        pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
+    }
+}
+
+/**
  * Creates a new Image
  * @param {String} url
  * @param {Number} posX 
@@ -243,9 +271,9 @@ function Picture(url, posX, posY, w, h){
     //Make this text have an id of its milliseconds creation time
     this.id = "Image_" + (new Date()).getTime();
     //Create the component
-    let jqRef = add(this.id, "img", "").attr('src', url);
-    if(w && w != -1) jqRef.attr('width', w);
-    if(h && h != -1) jqRef.attr('height', h);
+    this.jqRef = add(this.id, "img", "").attr('src', url);
+    if(w && w != -1) this.jqRef.attr('width', w);
+    if(h && h != -1) this.jqRef.attr('height', h);
 
     /**
      * Renders this component
@@ -271,7 +299,7 @@ function Para(posX, posY, width, text) {
     //Make this text have an id of its milliseconds creation time
     this.id = "par_" + (new Date()).getTime();
     //Create the component
-    let jqRef = par(this.id, width, text);
+    this.jqRef = par(this.id, width, text);
 
     /**
      * Renders this component
@@ -279,5 +307,12 @@ function Para(posX, posY, width, text) {
     this.render = function (modal) {
         //Set the position according to the modal position, and our position
         pos(this.id, modal.pos.x + this.pos.x, modal.pos.y + this.pos.y);
+    }
+
+    /**
+     * Sets the text to something new
+     */
+    this.setText = function(s){
+        this.jqRef.html(s);
     }
 }

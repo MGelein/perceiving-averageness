@@ -115,6 +115,12 @@ function slideFour(m){
             visFour(m);
         }
     }));
+    m.add(new Para(30, 200, 200, getS("OR")));
+    let p = new Para(580, 250, 100, "50");
+    m.add(p);
+    m.add(new InputSlider(30, 260, 1, 120, 1, function(event){
+        p.setText($(event.target).val());
+    }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visFour(m);
@@ -149,13 +155,22 @@ function slideFive(m){
         visFive(m);
         return;
     }
+    let nextF = function(){
+        visFive(m);
+    }
     //Else display the question
-    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
-        //Catch enter to also show vis
-        if(event.keyCode == 13){
-            visFive(m);
-        }
-    }));
+    let male = new Picture("data/img/male.png", 30, 160, -1, 200);
+    male.jqRef.addClass('hoverable').click(nextF);
+    let female = new Picture("data/img/female.png", 530, 160, -1, 200);
+    female.jqRef.addClass('hoverable').click(nextF);
+    let non = new Picture("data/img/non-binary.png", 265, 160, -1, 200);
+    non.jqRef.addClass('hoverable').click(nextF);
+    m.add(male);
+    m.add(non);
+    m.add(female);
+    m.add(new Para(50, 330, 200, getS("M")));
+    m.add(new Para(285, 330, 200, getS("NB")));
+    m.add(new Para(550, 330, 200, getS("F")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visFive(m);
@@ -372,7 +387,7 @@ function visTen(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/marital.gif", 200, 230, -1, 300));
+    m.add(new Picture("data/img/marital.gif", 400, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("MARITAL_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -412,7 +427,7 @@ function visEleven(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/piechart.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/migration.png", 200, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("MIGRATION_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
@@ -425,5 +440,14 @@ function visEleven(m){
  * @param {Modal} m 
  */
 function slideFinal(m){
-    
+    m.add(new Button(getS("TITLE_1"), 30, 140, function(){gotoSlide(1);}));
+    m.add(new Button(getS("TITLE_2"), 30, 200, function(){gotoSlide(2);}));
+    m.add(new Button(getS("TITLE_3"), 30, 260, function(){gotoSlide(3);}));
+    m.add(new Button(getS("TITLE_4"), 30, 320, function(){gotoSlide(4);}));
+    m.add(new Button(getS("TITLE_5"), 30, 380, function(){gotoSlide(5);}));
+    m.add(new Button(getS("TITLE_6"), 330, 140, function(){gotoSlide(6);}));
+    m.add(new Button(getS("TITLE_7"), 330, 200, function(){gotoSlide(7);}));
+    m.add(new Button(getS("TITLE_8"), 330, 260, function(){gotoSlide(8);}));
+    m.add(new Button(getS("TITLE_9"), 330, 320, function(){gotoSlide(9);}));
+    m.add(new Button(getS("TITLE_10"), 330, 380, function(){gotoSlide(10);}));
 }

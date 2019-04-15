@@ -19,7 +19,7 @@ var langDB = {};
  * Starts loading and parsing the language file
  */
 function loadLang(){
-    $.get("data/lang.hsv?v=3", function(response){
+    $.get("data/lang.hsv?v=5", function(response){
         //Remove any carriage returns
         response = response.replace(/\r/g, '');
         //Split on newlines;
