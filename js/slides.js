@@ -427,13 +427,11 @@ function slideEleven(m){
         visEleven(m);
         return;
     }
-    //Else display the question
-    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
-        //Catch enter to also show vis
-        if(event.keyCode == 13){
-            visEleven(m);
-        }
-    }));
+    let world = new Picture("data/img/world.png", 130, 130, -1, 400);
+    world.jqRef.click(function(){
+        visEleven(m);
+    });
+    m.add(world);
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visEleven(m);
@@ -450,7 +448,8 @@ function visEleven(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/migration.png", 200, 230, -1, 300));
+    let world = new Picture("data/img/migration.png", 200, 230, -1, 300);
+    m.add(world);
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("MIGRATION_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
