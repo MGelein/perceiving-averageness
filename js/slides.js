@@ -6,6 +6,9 @@ const listDone = {};
 listDone.one = listDone.two = listDone.three = listDone.four = listDone.five = listDone.six = listDone.seven = false;
 listDone.eight = listDone.nine = listDone.ten = listDone.eleven = false;
 
+//If we've seen the overview
+var finalSeen = false;
+
 /**
  * Adds the components for slide one to the modal
  * @param {Modal} m 
@@ -465,6 +468,10 @@ function visEleven(m){
  * @param {Modal} m 
  */
 function slideFinal(m){
+    //Rename the continue button
+    langDB["CONTINUE"] = {nl: "Overzicht", en:"Overview"};
+    finalSeen = true;
+    //Create all the buttons
     m.add(new Button(getS("TITLE_1"), 30, 140, function(){gotoSlide(1);}));
     m.add(new Button(getS("TITLE_2"), 30, 200, function(){gotoSlide(2);}));
     m.add(new Button(getS("TITLE_3"), 30, 260, function(){gotoSlide(3);}));

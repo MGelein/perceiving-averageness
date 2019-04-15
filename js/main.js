@@ -202,7 +202,11 @@ function mousePressed() {
  * Goto next slide
  */
 function nextSlide() {
-    gotoSlide(slideNumber + 1);
+    if (finalSeen) {
+        gotoSlide(11);
+    } else {
+        gotoSlide(slideNumber + 1);
+    }
 }
 
 /**
@@ -332,17 +336,17 @@ function drawSlideMarker(num) {
         if (i < num) {//Questions we've had
             fill(colorC);
             stroke(colorA);
-            if(i == 0) rect(i * stepX + startX - r2, startY - r2 , radius, radius);
+            if (i == 0) rect(i * stepX + startX - r2, startY - r2, radius, radius);
             else ellipse(i * stepX + startX, startY, radius, radius);
         } else if (i > num) {//Question's we haven't reached
             fill(colorD);
             stroke(colorA);
-            if(i == 0) rect(i * stepX + startX - r2, startY - r2, radius, radius);
+            if (i == 0) rect(i * stepX + startX - r2, startY - r2, radius, radius);
             else ellipse(i * stepX + startX, startY, radius, radius);
         } else {//The question we're at right now
             fill(colorB);
             stroke(colorA);
-            if(i == 0) rect(i * stepX + startX - r2, startY - r2, radius, radius);
+            if (i == 0) rect(i * stepX + startX - r2, startY - r2, radius, radius);
             else ellipse(i * stepX + startX, startY, radius * 1.3, radius * 1.3);
         }
         //If we're making the marker array, add the coords
