@@ -350,13 +350,6 @@ function slideNine(m){
         visNine(m);
         return;
     }
-    //Else display the question
-    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
-        //Catch enter to also show vis
-        if(event.keyCode == 13){
-            visNine(m);
-        }
-    }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visNine(m);
@@ -390,13 +383,17 @@ function slideTen(m){
         visTen(m);
         return;
     }
-    //Else display the question
-    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
-        //Catch enter to also show vis
-        if(event.keyCode == 13){
-            visTen(m);
-        }
-    }));
+    let nextF = function(){visTen(m)};
+    let single = new Picture("data/img/single.png", 130, 150, -1, 250);
+    single.jqRef.addClass('hoverable').click(nextF);
+    let married = new Picture("data/img/married.png", 430, 150, -1, 250);
+    married.jqRef.addClass('hoverable').click(nextF);
+    let widow = new Picture("data/img/widow.png", 730, 150, -1, 250);
+    widow.jqRef.addClass('hoverable').click(nextF);
+    m.add(single); m.add(married); m.add(widow);
+    m.add(new Para(140, 360, 100, getS("SINGLE")));
+    m.add(new Para(440, 360, 100, getS("MARRIED")));
+    m.add(new Para(740, 360, 100, getS("WIDOW")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visTen(m);

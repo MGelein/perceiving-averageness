@@ -11,6 +11,9 @@ const LANG_SELECT = 1;
 const QUESTIONNAIRE = 2;
 const OVERVIEW = 3;
 
+/**the counter for components */
+var compCount = 0;
+
 //The current program stage
 var PROGRAM_STAGE = LANG_SELECT;
 

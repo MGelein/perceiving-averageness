@@ -138,7 +138,8 @@ function Title(text) {
     //Our own position, relative to the modal
     this.pos = { x: 30, y: 10 };
     //Make this text have an id of its milliseconds creation time
-    this.id = "title_" + (new Date()).getTime();
+    this.id = "title_" + (new Date()).getTime() + "-" + compCount;
+    compCount ++;
     //Create the component
     add(this.id, "h1", text);
 
@@ -161,7 +162,8 @@ function Question(text) {
     //Our own position, relative to the modal
     this.pos = { x: 30, y: 80 };
     //Make this text have an id of its milliseconds creation time
-    this.id = "question_" + (new Date()).getTime();
+    this.id = "question_" + (new Date()).getTime() + "-" + compCount;
+    compCount++;
     //Create the component
     add(this.id, "h3", text);
 
@@ -187,7 +189,8 @@ function Button(text, posX, posY, callBackFn) {
     //Our own position, relative to the modal
     this.pos = { x: posX, y: posY };
     //Make this text have an id of its milliseconds creation time
-    this.id = "question_" + (new Date()).getTime();
+    this.id = "question_" + (new Date()).getTime() + "-" + compCount;
+    compCount ++;
     //Create the component
     let jqRef = add(this.id, "button", text).addClass('btn btn-primary btn-lg');
     $('#' + this.id).unbind('click').click(callBackFn);
@@ -214,7 +217,8 @@ function InputField(placeHolder, posX, posY, callBackFn){
     //Our own position, relative to the modal
     this.pos = { x: posX, y: posY };
     //Make this text have an id of its milliseconds creation time
-    this.id = "Input_" + (new Date()).getTime();
+    this.id = "Input_" + (new Date()).getTime() + "-" + compCount;
+    compCount ++;
     //Create the component
     let jqRef = add(this.id, "input", "").addClass('form-control');
     $('#' + this.id).unbind('keyup').keyup((event) => {callBackFn(event)}).attr('type', 'text');
@@ -242,7 +246,8 @@ function InputSlider(posX, posY, min, max, step, callBackFn){
     //Our own position, relative to the modal
     this.pos = { x: posX, y: posY };
     //Make this text have an id of its milliseconds creation time
-    this.id = "Input_" + (new Date()).getTime();
+    this.id = "Input_" + (new Date()).getTime() + "-" + compCount;
+    compCount ++;
     //Create the component
     this.jqRef = add(this.id, "input", "").addClass('form-control');
     $('#' + this.id).unbind('change').change((event) => {callBackFn(event)}).attr('type', 'range');
@@ -269,7 +274,8 @@ function Picture(url, posX, posY, w, h){
     //Our own position, relative to the modal
     this.pos = { x: posX, y: posY };
     //Make this text have an id of its milliseconds creation time
-    this.id = "Image_" + (new Date()).getTime();
+    this.id = "Image_" + (new Date()).getTime() + "-" + compCount;
+    compCount ++;
     //Create the component
     this.jqRef = add(this.id, "img", "").attr('src', url);
     if(w && w != -1) this.jqRef.attr('width', w);
@@ -297,7 +303,8 @@ function Para(posX, posY, width, text) {
     //Our own position, relative to the modal
     this.pos = { x: posX, y: posY };
     //Make this text have an id of its milliseconds creation time
-    this.id = "par_" + (new Date()).getTime();
+    this.id = "par_" + (new Date()).getTime() + "-" + compCount;
+    compCount ++;
     //Create the component
     this.jqRef = par(this.id, width, text);
 
