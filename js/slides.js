@@ -384,16 +384,19 @@ function slideTen(m){
         return;
     }
     let nextF = function(){visTen(m)};
-    let single = new Picture("data/img/single.png", 130, 150, -1, 250);
+    let single = new Picture("data/img/single.png", 130, 140, -1, 250);
     single.jqRef.addClass('hoverable').click(nextF);
-    let married = new Picture("data/img/married.png", 430, 150, -1, 250);
+    let married = new Picture("data/img/married.png", 380, 140, -1, 250);
     married.jqRef.addClass('hoverable').click(nextF);
-    let widow = new Picture("data/img/widow.png", 730, 150, -1, 250);
+    let widow = new Picture("data/img/widow.png", 600, 140, -1, 250);
     widow.jqRef.addClass('hoverable').click(nextF);
-    m.add(single); m.add(married); m.add(widow);
+    let divorced = new Picture("data/img/divorced.png", 850, 140, -1, 250);
+    divorced.jqRef.addClass('hoverable').click(nextF);
+    m.add(single); m.add(married); m.add(widow); m.add(divorced);
     m.add(new Para(140, 360, 100, getS("SINGLE")));
-    m.add(new Para(440, 360, 100, getS("MARRIED")));
-    m.add(new Para(740, 360, 100, getS("WIDOW")));
+    m.add(new Para(390, 360, 100, getS("MARRIED")));
+    m.add(new Para(600, 360, 100, getS("WIDOW")));
+    m.add(new Para(860, 360, 100, getS("DIVORCED")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visTen(m);

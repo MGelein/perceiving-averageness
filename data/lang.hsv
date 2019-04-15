@@ -32,8 +32,9 @@ TYPE_HERE#Typ hier#Type here
 SKIP#Overslaan#Skip
 OR#of#or
 WIDOW#Weduw(e/naar)#Widow(er)
-SINGLE#Alleenstaand#SINGLE
+SINGLE#Alleenstaand#Single
 MARRIED#Gehuwd#Married
+DIVORCED#Gescheiden#Divorced
 F#Vrouw#Female
 M#Man#Male
 NB#Non-Binary#Non-Binary
