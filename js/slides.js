@@ -297,13 +297,26 @@ function slideEight(m){
         visEight(m);
         return;
     }
-    //Else display the question
-    m.add(new InputField(getS("TYPE_HERE"), 30, 150, function(event){
-        //Catch enter to also show vis
-        if(event.keyCode == 13){
-            visEight(m);
-        }
-    }));
+    let nextF = function(){visEight(m)};
+    let hs = new Picture("data/img/highschool.png", 30, 160, 150, -1);
+    hs.jqRef.addClass('hoverable').click(nextF);
+    let mbo = new Picture("data/img/highschool.png", 200, 160, 150, -1);
+    mbo.jqRef.addClass('hoverable').click(nextF);
+    let hbo = new Picture("data/img/highschool.png", 370, 160, 150, -1);
+    hbo.jqRef.addClass('hoverable').click(nextF);
+    let ba = new Picture("data/img/university.png", 540, 160, 150, -1);
+    ba.jqRef.addClass('hoverable').click(nextF);
+    let ma = new Picture("data/img/university.png", 710, 160, 150, -1);
+    ma.jqRef.addClass('hoverable').click(nextF);
+    let phd = new Picture("data/img/university.png", 880, 160, 150, -1);
+    phd.jqRef.addClass('hoverable').click(nextF);
+    m.add(hs); m.add(mbo); m.add(hbo); m.add(ba); m.add(ma); m.add(phd);
+    m.add(new Para(40, 280, 100, getS("HS")));
+    m.add(new Para(210, 280, 100, getS("MBO")));
+    m.add(new Para(380, 280, 100, getS("HBO")));
+    m.add(new Para(550, 280, 100, getS("BA")));
+    m.add(new Para(720, 280, 100, getS("MA")));
+    m.add(new Para(890, 280, 100, getS("PHD")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visEight(m);
