@@ -353,6 +353,12 @@ function slideNine(m){
         visNine(m);
         return;
     }
+    m.add(new Para(30, 200, 200, getS("OR")));
+    let p = new Para(580, 250, 300, "€ 1000");
+    m.add(p);
+    m.add(new InputSlider(30, 260, 1000, 120000, 1000, function(event){
+        p.setText("€ " + $(event.target).val());
+    }));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto data visualization
         visNine(m);
@@ -369,7 +375,7 @@ function visNine(m){
     //Empty the visualization
     m.empty();
     //Now add the new things
-    m.add(new Picture("data/img/income.png", 200, 230, -1, 300));
+    m.add(new Picture("data/img/income2.png", 200, 230, -1, 300));
     m.add(new Para(30, 80, SKETCH_WIDTH - 80, getS("INCOME_RESULT")));
     m.add(new Button(getS("CONTINUE"), 30, 400, function(){
         //Goto next Slide
